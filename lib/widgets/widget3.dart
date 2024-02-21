@@ -16,28 +16,19 @@ class ThirdTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Get.find<MyDataController>().changeRandomColor();
-      },
-      child: Container(
-        color: Get.find<MyDataController>().selectedColor,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Widget 3'),
-            centerTitle: true,
-          ),
-          body: Center(
-            child: GetBuilder<MyDataController>(
-              builder: (_) {
-                Color randomColor;
-                do {
-                  randomColor = _availableColors[
-                      Random().nextInt(_availableColors.length)];
-                } while (randomColor == _.selectedColor);
-                return Container(
-                  width: 200,
-                  height: 200,
+    return Container(
+      color: Get.find<MyDataController>().selectedColor,
+      child: Scaffold(
+        body: Center(
+          child: GetBuilder<MyDataController>(
+            builder: (_) {
+              Color randomColor;
+              do {
+                randomColor =
+                    _availableColors[Random().nextInt(_availableColors.length)];
+              } while (randomColor == _.selectedColor);
+              return Expanded(
+                child: Container(
                   color: randomColor,
                   child: const Center(
                     child: Text(
@@ -45,9 +36,9 @@ class ThirdTab extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
         ),
       ),

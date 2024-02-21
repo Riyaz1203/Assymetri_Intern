@@ -1,11 +1,9 @@
-
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MyDataController extends GetxController {
-  Rx<Color> _selectedColor = Colors.white.obs;
+  final Rx<Color> _selectedColor = Colors.white.obs;
 
   Color get selectedColor => _selectedColor.value;
 
@@ -29,15 +27,22 @@ class MyDataController extends GetxController {
       default:
         _selectedColor.value = Colors.white;
     }
+    update();
   }
 
   void changeRandomColor() {
-    final List<Color> availableColors = [Colors.red, Colors.blue, Colors.green, Colors.yellow, Colors.white];
+    final List<Color> availableColors = [
+      Colors.red,
+      Colors.blue,
+      Colors.green,
+      Colors.yellow,
+      Colors.white
+    ];
     Color randomColor;
     do {
       randomColor = availableColors[Random().nextInt(availableColors.length)];
     } while (randomColor == _selectedColor.value);
     _selectedColor.value = randomColor;
+    update();
   }
 }
-
