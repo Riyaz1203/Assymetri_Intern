@@ -30,6 +30,15 @@ class SecondTab extends StatelessWidget {
                       Get.find<MyDataController>().changeBackgroundColor(value);
                     },
                   ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Center(
+                    child: Text(
+                      'Widget 2',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ],
               ),
             ),

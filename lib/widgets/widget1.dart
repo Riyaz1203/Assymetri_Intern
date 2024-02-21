@@ -44,8 +44,7 @@ class Widget1 extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(
-                height: 10), 
+            const SizedBox(height: 10),
             const TabBar(
               tabs: [
                 Tab(text: 'Widget 2'),
