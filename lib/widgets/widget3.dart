@@ -27,14 +27,14 @@ class ThirdTab extends StatelessWidget {
                 randomColor =
                     _availableColors[Random().nextInt(_availableColors.length)];
               } while (randomColor == _.selectedColor);
-              return Expanded(
-                child: Container(
-                  color: randomColor,
-                  child: const Center(
-                    child: Text(
-                      'Widget 3',
-                      style: TextStyle(fontSize: 20),
-                    ),
+              return Container(
+                width: double.infinity, // Take the full width of the parent
+                height: double.infinity, // Take the full height of the parent
+                color: randomColor,
+                child: const Center(
+                  child: Text(
+                    'Widget 3',
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               );
